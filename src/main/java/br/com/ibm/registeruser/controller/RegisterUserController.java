@@ -29,4 +29,11 @@ public class RegisterUserController {
         List<RegisterUserModel> listUser = service.findAll();
         return ResponseEntity.ok().body(listUser);
     }
+
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<RegisterUserModel> findById(@PathVariable Long id){
+        RegisterUserModel obj = service.findById(id);
+        return ResponseEntity.ok().body(obj);
+
+    }
 }

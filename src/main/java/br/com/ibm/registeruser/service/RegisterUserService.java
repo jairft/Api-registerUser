@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RegisterUserService {
@@ -19,5 +20,10 @@ public class RegisterUserService {
 
     public List<RegisterUserModel> findAll() {
         return repository.findAll();
+    }
+
+    public RegisterUserModel findById(Long id){
+        Optional<RegisterUserModel> userModel = repository.findById(id);
+        return userModel.get();
     }
 }
